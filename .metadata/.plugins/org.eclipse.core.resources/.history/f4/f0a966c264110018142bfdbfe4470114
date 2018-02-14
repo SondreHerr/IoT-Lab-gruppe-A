@@ -1,4 +1,4 @@
-package sensorApp;
+package xBee;
 
 import com.digi.xbee.api.WiFiDevice;
 import com.digi.xbee.api.XBeeDevice;
