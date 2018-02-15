@@ -1,0 +1,76 @@
+"""THIS FILE IS USED TO GATHER DATA FROM THE RASPBERRY PI SENSE HAT"""
+"""IT ALSO STORES THE DATA TO A CSV FILE, FOR EASY ACCESS"""
+
+from sense_hat import SenseHat
+from datetime import datetime
+from csv import writer
+
+sense = SenseHat()
+
+def get_sense_data():
+        sense_data = []
+
+        """GETTING TEMPERATURE, PRESSURE AND HUMIDITY"""
+        temperature = sense.get_temperature()
+        pressure = sense.get_pressure()
+        humidity = sense.get_humidity()
+        sense_data.append(temperature)
+        sense_data.append(pressure)
+        sense_data.append(humidity)
+
+        """GETTING ORIENTATION, ADDING TO LIST"""
+        orientation = sense.get_orientation()
+        orientation_yaw = orientation["yaw"]
+        orientation_pitch = orientation["pitch"]
+        orientation_roll = orientation["roll"]
+        sense_data.append(orientation_yaw)
+        sense_data.append(orientation_pitch)
+        sense_data.append(orientation_roll)
+
+        """GETTING COMPASS READING, ADDING TO LIST"""
+        mag = sense.get_compass_raw()
+        mag_x = mag["x"]
+        mag_y = mag["y"]
+        mag_z = mag["z"]
+        sense_data.append(mag_x)
+        sense_data.append(mag_y)
+        sense_data.append(mag_z)
+
+        """GETTING DATA FROM ACCELEROMETER, ADDING TO LIST"""
+        acc = sense.get_accelerometer_raw()
+        acc_x = acc["x"]
+        acc_y = acc["y"]
+        acc_z = acc["z"]
+        sense_data.append(acc_x)
+        sense_data.append(acc_y)
+        sense_data.append(acc_z)
+
+        """GETTING DATA FROM GYROSCOPE, ADDING TO LIST"""
+        gyro = sense.get_gyroscope_raw()
+        gyro_x = gyro["x"]
+        gyro_y = gyro["y"]
+        gyro_z = gyro["z"]
+        sense_data.append(gyro_x)
+        sense_data.append(gyro_y)
+        sense_data.append(gyro_z)
+
+        """ADDING THE CURRENT DATE AND TIME OF READINGS"""
+        datetime = datetime.now()
+        sense_data.append(datetime)
+
+        return sense_data
+
+import csv
+with open('senseData.csv', 'w', newline='') as f:
+    senseData_writer = csv.writer(f)
+
+    while True:
+    senseData = get_sense_data()
+    senseData_writer.writerow('temperature', 'pressure', 'humidity', 'orientation_yaw', 'orientation_pitch', 'orientation_roll', 'mag_x', 'mag_y', 'mag_z', 'acc_x', 'acc_y', 'acc_z', 'gyro_x', 'gyro_y', 'gyro_z', 'datetime')
+
+
+"""PRINTS OUT ALL THE DATA IN LIST FORM TO THE CONSOLE"""
+while True:
+        print(get_sense_data())
+
+
