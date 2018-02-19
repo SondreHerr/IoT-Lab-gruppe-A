@@ -1,0 +1,52 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage[margin=3cm]{geometry} % Smaller margins
+\usepackage{forest} % Required for directory graph
+\usepackage{listings} % Formatting code
+\usepackage{allrunes}
+\usepackage[font={footnotesize}, margin=1cm]{caption}
+
+% Code for Mohammed's quotes
+\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip1em
+  \hbox{}\nobreak\hfill #1%
+  \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+\newsavebox\mybox
+\newenvironment{aquote}[1]
+  {\savebox\mybox{#1}\begin{quote}\hspace*{-.7ex}}
+  {\unskip\vspace*{1mm}\signed{\usebox\mybox}\end{quote}}
+
+
+% For code typesetting
+\makeatletter
+\lstset{
+    basicstyle=\ttfamily,
+    keywordstyle=\lst@ifdisplaystyle\color{blue}\fi,
+    commentstyle=\color{gray}
+    columns=fullflexible,
+    breaklines=true,
+}
+\makeatother
+
+
+\graphicspath{{images/}}
+
+\title{Report, Bachelor, IoT Lab}
+\author{Blomvik, K.  \and Herredsvela, S. \and Waage, K.}
+\date{Group A}
+\begin{document}
+
+\maketitle
+
+\vspace{4em}
+
+\tableofcontents
+
+\newpage
+\section{Introduction}
+
+This chapter will introduce the task and how the group approached the challenges presented.
+
+\end{document}
