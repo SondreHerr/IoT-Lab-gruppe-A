@@ -60,5 +60,8 @@ Etter å ha gjort dette, har du opprettet en strøm som det vil kunne gå ann å
 Dersom dette kommer opp er MQTT brokeren Mosquitto klar til bruk.
 
 
+https://alexkychen.wordpress.com/2017/11/09/install-mosquitto-on-raspbian-stretch/
+
+
 
 
