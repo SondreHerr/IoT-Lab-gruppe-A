@@ -1,0 +1,15 @@
+Hvordan installere Node-RED på Raspberry Pi
+
+I denne rutinen skal vi installere Node-RED. Dette er et program utviklet av IBM skrevet i JavaScript som er mye brukt til å styre IoT enheter. Programmet vil gjøre det lettere å programmere mot IoT enheter, da det lager kode for deg.
+
+NodeRED følger med Raspian OS på Raspberry Pi, men krever å oppdateres og startes for å fungere. Dette kan gjøres ved følgende kommandoer:
+
+sudo apt-get update
+sudo apt-get upgrade
+bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)
+
+Dersom noen av disse ber deg bekrefte handlingen, velg Y (for “yes”).
+
+
+En fullstendig guide gjennom alle Node-REDs funksjoner, og flere guider kan finnes her:
+http://noderedguide.com/
