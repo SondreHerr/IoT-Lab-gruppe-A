@@ -8,3 +8,10 @@ https://iotbytes.wordpress.com/mosquitto-mqtt-broker-on-raspberry-pi/
 
 Node-RED download
 bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)
+
+
+Snadderboard:
+
+https://freeboard.io/board/YTray7
+
+http://dweet.io/follow/sondreherredsvela
