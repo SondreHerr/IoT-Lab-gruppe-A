@@ -15,3 +15,7 @@ Snadderboard:
 https://freeboard.io/board/YTray7
 
 http://dweet.io/follow/sondreherredsvela
+
+
+Intressange greie:
+http://pdwhomeautomation.blogspot.no/2015/03/using-fitbit-api-on-raspberry-pi-with.html
