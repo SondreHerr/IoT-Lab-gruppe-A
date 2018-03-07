@@ -7,7 +7,7 @@ import com.digi.xbee.api.models.XBeeProtocol;
 public class MainApp {
 	/* Constants */
 	// TODO
-	private static final String PORT = "COM1";
+	private static final String PORT = "usbserial-AL033DVI";
 	// TODO
 	private static final int BAUD_RATE = 9600;
 

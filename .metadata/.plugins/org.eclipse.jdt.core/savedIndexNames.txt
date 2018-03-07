@@ -2,15 +2,15 @@ INDEX VERSION 1.127+/Users/sondreherredsvela/Google Drive/Bachelor/IoT-Lab-grupp
 2782194221.index
 1112055736.index
 4113940940.index
-811003632.index
+3772411501.index
 3044016947.index
+2826013083.index
 642370658.index
-3869220534.index
-4266858779.index
 107623037.index
+3869220534.index
 3983245638.index
 1271342938.index
-2826013083.index
+4266858779.index
 2422619679.index
 2179196179.index
 3793988620.index
@@ -24,5 +24,5 @@ INDEX VERSION 1.127+/Users/sondreherredsvela/Google Drive/Bachelor/IoT-Lab-grupp
 2453379900.index
 475152951.index
 1613657645.index
+811003632.index
 164326536.index
-3772411501.index
