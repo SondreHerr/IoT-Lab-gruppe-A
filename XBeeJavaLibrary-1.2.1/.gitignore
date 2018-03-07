@@ -1,7 +1,0 @@
-bin
-/libs
-.project
-.classpath
-/target
-/.settings
-/examples/*/*/.gitignore
