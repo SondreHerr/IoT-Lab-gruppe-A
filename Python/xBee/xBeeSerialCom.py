@@ -1,7 +1,7 @@
 import serial
 
-ser = serial.Serial
-
+ser = serial.Serial('/dev/tty.usbserial-AL033CVS')
+print(ser.name)
 # USB PORTS SONDRE MAC
 #/dev/tty.usbserial-AL033CVS
 #/dev/tty.usbserial-AL033DVI
