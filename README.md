@@ -23,3 +23,4 @@ http://pdwhomeautomation.blogspot.no/2015/03/using-fitbit-api-on-raspberry-pi-wi
 Recieving XBee data on RPi:
 http://www.raspberry-pi-geek.com/Archive/2015/12/Analyzing-sensor-readings-with-an-XBee-wireless-connection/(offset)/2
 
+### https://github.com/jeancarl/node-red-labs/tree/master/lab-sense-hat/node-red-dashboard
