@@ -24,3 +24,5 @@ messageOff = "".join(off.split())
 # MAKE IT INTO BYTES USABLE IN SERIAL COMMUNICATION(BREAKDOWN DRIVE ME INSAAAANEEE)
 messageOn = messageOn.decode("hex")
 messageOff = messageOff.decode("hex")
+
+print messageOn
