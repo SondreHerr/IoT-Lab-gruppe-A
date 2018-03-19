@@ -23,17 +23,33 @@ try:
         # TEMPERATURE
         temperature = sense.get_temperature()
         temperature = round(temperature, 2)
-        client.publish("sense/temperature", temperature + "C")
+        client.publish("sense/temperature", temperature)
 
         # HUMIDITY
         humidity = sense.get_humidity()
         humidity = round(humidity, 2)
-        client.publish("sense/humidity", humidity + "%")
+        client.publish("sense/humidity", humidity)
 
         # PRESSURE
         pressure = sense.get_pressure()
         pressure = round(pressure, 2)
-        client.publish("sense/pressure", pressure + "Millibar")
+        client.publish("sense/pressure", pressure)
+
+        # GETTING ORIENTATION
+        orientation = sense.get_orientation()
+
+        # PITCH
+        pitch = orientation['pitch']
+        client.publish("sense/pitch", pitch)
+
+        # ROLL
+        roll = orientation['roll']
+        client.publish("sense/roll", roll)
+
+        # YAW
+        yaw = orientation['yaw']
+        client.publish("sense/yaw", yaw)
+
         # WAIT 10 SECONDS FOR NEW READ
         time.sleep(10)
 
