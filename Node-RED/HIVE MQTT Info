@@ -1,0 +1,13 @@
+## HIVE MQTT Info
+
+Client ID: clientId-aXOQpRMMVX
+Host/Server: broker.mqttdashboard.com
+
+Porter kommer så klart ann på swituasjon,bruker somregel 1883, men kan væree 8000 i noen tilfeller(online)
+
+Topics:
+test/test
+xBee/quality
+
+bruker: Pi
+passord: raspberry
