@@ -1,0 +1,65 @@
+Person teller flow med kode
+
+
+[{"id":"b501bf79.8b1d8","type":"function","z":"7bfd1abf.753d54","name":"dio12","func":"var xBeeDIO12 = msg.payload;\nvar dio12In = xBeeDIO12.digitalSamples.DIO12;\n\nif(dio12In === 1){\n    var dateDIO12 = new Date();\n    global.set(\"DateDIO12\", dateDIO12.getTime());\n}\nmsg.payload = dio12In;\nreturn msg;","outputs":1,"noerr":0,"x":370,"y":180,"wires":[["9e77b5b9.29c778"]]},{"id":"8efbaabc.636bf8","type":"function","z":"7bfd1abf.753d54","name":"dio4","func":"var xBeeDIO4 = msg.payload;\nvar dio4In = xBeeDIO4.digitalSamples.DIO4;\n\nif(dio4In === 1){\n    var dateDIO4 = new Date();\n    global.set(\"DateDIO4\", dateDIO4.getTime());\n}\nmsg.payload = dio4In;\nreturn msg;","outputs":1,"noerr":0,"x":370,"y":300,"wires":[["9e77b5b9.29c778"]]},{"id":"9e77b5b9.29c778","type":"function","z":"7bfd1abf.753d54","name":"counter","func":"if(msg.payload === 1){\n    \n    var time4 = global.get(\"DateDIO4\");\n    var time12 = global.get(\"DateDIO12\");\n    //defining the difference in time between the recorded changes\n    var diff = time4-time12;\n    //defining num of people in the room\n    \n    var count = context.get('count')||0;\n    //checking if the trips happened within 1s of eachother, and in what direction\n    \n    if(diff > 0 && diff < 4000){\n        count += 1;\n        // store the value back\n        context.set('count',count);\n        msg.payload = \"someone entered the room \" + diff + \" antall: \" + count;\n    }else if(diff < 0 && diff >-3000){\n        if(count >= 1){\n            count -= 1;\n            context.set('count',count);\n            msg.payload = \"someone left the room \" + diff + \" antall: \" + count;\n        }\n        \n    }else{\n        msg.payload = \"antall mennesker: \" + count; \n\n    }\n    return msg;\n}\n//else{\n//    msg.payload = \"x\";\n//    return msg;\n//}\n","outputs":1,"noerr":0,"x":620,"y":240,"wires":[["37da8ec0.b03352"]]},{"id":"37da8ec0.b03352","type":"debug","z":"7bfd1abf.753d54","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"payload","x":830,"y":240,"wires":[]},{"id":"82c90a0a.597f18","type":"xbee-rx","z":"7bfd1abf.753d54","name":"COORD","xBee":"db9dc447.6b15b8","x":100,"y":240,"wires":[["b501bf79.8b1d8","8efbaabc.636bf8"]]},{"id":"db9dc447.6b15b8","type":"xbee-config","z":"","apiMode":"1","rawFrames":false,"convertAdc":true,"vrefAdc":"1200","serialPort":"/dev/ttyUSB0","lock":true,"baudRate":"9600","dataBits":"8","stopBits":"1","parity":"none","bufferSize":"65536","rtscts":true,"xon":false,"xoff":false,"xany":false,"vmin":"1","vtime":"0"}]
+
+
+
+DIO12 Function
+
+var xBeeDIO12 = msg.payload;
+var dio12In = xBeeDIO12.digitalSamples.DIO12;
+
+if(dio12In === 1){
+    var dateDIO12 = new Date();
+    global.set("DateDIO12", dateDIO12.getTime());
+}
+msg.payload = dio12In;
+return msg;
+
+
+
+DIO4 Function
+
+var xBeeDIO4 = msg.payload;
+var dio4In = xBeeDIO4.digitalSamples.DIO4;
+
+if(dio4In === 1){
+    var dateDIO4 = new Date();
+    global.set("DateDIO4", dateDIO4.getTime());
+}
+msg.payload = dio4In;
+return msg;
+
+
+Counter Function
+
+if(msg.payload === 1){
+
+    var time4 = global.get("DateDIO4");
+    var time12 = global.get("DateDIO12");
+    //defining the difference in time between the recorded changes
+    var diff = time4-time12;
+    //defining num of people in the room
+
+    var count = context.get('count')||0;
+    //checking if the trips happened within 1s of eachother, and in what direction
+
+    if(diff > 0 && diff < 4000){
+        count += 1;
+        // store the value back
+        context.set('count',count);
+        msg.payload = "someone entered the room " + diff + " antall: " + count;
+    }else if(diff < 0 && diff >-3000){
+        if(count >= 1){
+            count -= 1;
+            context.set('count',count);
+            msg.payload = "someone left the room " + diff + " antall: " + count;
+        }
+
+    }else{
+        msg.payload = "antall mennesker: " + count;
+
+    }
+    return msg;
+}
