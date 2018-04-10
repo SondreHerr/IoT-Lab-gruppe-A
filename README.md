@@ -50,6 +50,8 @@ cd ~
 
 wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u7_armhf.deb
 
+(wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb7u4_armhf.deb)
+
 sudo dpkg -i libssl1.0.0_1.0.1t-1+deb8u7_armhf.deb
 
 wget http://ftp.nz.debian.org/debian/pool/main/libw/libwebsockets/libwebs
