@@ -27,36 +27,41 @@ http://www.raspberry-pi-geek.com/Archive/2015/12/Analyzing-sensor-readings-with-
 
 
 
+lora
 
 
+1. Klone github repository
+I terminalen skriv kommandoen:
+	git clone https://github.com/bokse001/dual_chan_pkt_fwd
 
+2. Tillat SPI
+	sudo raspi-config
+Gå deretter ned på “Interfacing options” og enable SPI
 
+3. Innstaller wiringpi
+	sudo apt-get install wiringpi
 
+4. Konfigurer innstillinger for gateway
+	cd ~/dual_chan_pkt_fwd
+	nano global_conf.json
+i denne filen skal du endre et par pin assignments:
+“pin_nss”:6
+“pin_dio0”:7
+“pin_nss_2”:6
+“pin_dio0_2”:7
+“pin_rst”:3
+“pin_led1”:4
 
-cd ~
+Deretter setter du inn latitude og longitude på posisjonen av LoRa gatewayen. Om den befinnes på UiS vil det være:
+lat: 58.937875
+lon: 5.697094
 
-wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
+name og andre ting endrer du ettersom hva du ønsker.
 
-sudo apt-key add mosquitto-repo.gpg.key
+deretter lagre filen ved å trykke ctrl+O og trykk enter
+skriv
+	make
+	./dual_chan_pkt_fwd
+For å starte gatewayen
 
-cd /etc/apt/sources.list.d/
-
-sudo wget http://repo.mosquitto.org/debian/mosquitto-stretch.list
-
-sudo apt-get update
-
-
-cd ~
-
-wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u7_armhf.deb
-
-(wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb7u4_armhf.deb)
-
-sudo dpkg -i libssl1.0.0_1.0.1t-1+deb8u7_armhf.deb
-
-wget http://ftp.nz.debian.org/debian/pool/main/libw/libwebsockets/libwebs
-ockets3_1.2.2-1_armhf.deb
-
-sudo dpkg -i libwebsockets3_1.2.2-1_armhf.deb
-
-sudo apt-get install mosquitto mosquitto-clients
+Nå er den up and running, og du vil finne den på https://www.thethingsnetwork.org/# i den posisjonen du anga i konfigurasjonen
