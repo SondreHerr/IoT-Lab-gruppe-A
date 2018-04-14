@@ -27,41 +27,7 @@ http://www.raspberry-pi-geek.com/Archive/2015/12/Analyzing-sensor-readings-with-
 
 
 
-lora
+## AZURE MQTT
 
-
-1. Klone github repository
-I terminalen skriv kommandoen:
-	git clone https://github.com/bokse001/dual_chan_pkt_fwd
-
-2. Tillat SPI
-	sudo raspi-config
-Gå deretter ned på “Interfacing options” og enable SPI
-
-3. Innstaller wiringpi
-	sudo apt-get install wiringpi
-
-4. Konfigurer innstillinger for gateway
-	cd ~/dual_chan_pkt_fwd
-	nano global_conf.json
-i denne filen skal du endre et par pin assignments:
-“pin_nss”:6
-“pin_dio0”:7
-“pin_nss_2”:6
-“pin_dio0_2”:7
-“pin_rst”:3
-“pin_led1”:4
-
-Deretter setter du inn latitude og longitude på posisjonen av LoRa gatewayen. Om den befinnes på UiS vil det være:
-lat: 58.937875
-lon: 5.697094
-
-name og andre ting endrer du ettersom hva du ønsker.
-
-deretter lagre filen ved å trykke ctrl+O og trykk enter
-skriv
-	make
-	./dual_chan_pkt_fwd
-For å starte gatewayen
-
-Nå er den up and running, og du vil finne den på https://www.thethingsnetwork.org/# i den posisjonen du anga i konfigurasjonen
+https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
+https://azure.microsoft.com/en-us/resources/samples/iot-gateway-mqtt-http/
