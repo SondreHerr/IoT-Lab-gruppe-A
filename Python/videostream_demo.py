@@ -1,4 +1,4 @@
-# import the necessary packages
+# import de nødvendige tillegg
 from imutils.video import VideoStream
 import datetime
 import argparse
@@ -8,17 +8,17 @@ import cv2
 import numpy as np
 import Person
  
-# construct the argument parse and parse the arguments
+# konstrukter argument og parse argument
 ap = argparse.ArgumentParser()
 ap.add_argument("-p", "--picamera", type=int, default=-1,
 	help="whether or not the Raspberry Pi camera should be used")
 args = vars(ap.parse_args())
  
-# initialize the video stream and allow the cammera sensor to warmup
+# Start video stream og la kamerasensor varme opp
 vs = VideoStream(usePiCamera=args["picamera"] > 0).start()
 time.sleep(2.0)
 
-#Create background substractor
+# Lage bakgrunn som kan trekkes fra video stream
 fgbg = cv2.createBackgroundSubtractorMOG2(detectShadows = True)
 kernelOp = np.ones((3,3),np.uint8)
 kernelCl = np.ones((11,11),np.uint8)
