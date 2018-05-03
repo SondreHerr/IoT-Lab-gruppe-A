@@ -1,5 +1,5 @@
 import paho.mqtt.client as mqtt
-
+import time
 
 # SETTING UP A MQTT CLIENT
 client = mqtt.Client("python_publisher")
@@ -12,11 +12,12 @@ client.connect("192.168.1.41", 1883)
 client.loop_start()
 
 try:
-
     while True:
         # GENERATING TOPIC AND PUBLISHING
         #
         client.publish("personteller/antall", total + " personer i rommet")
+        # WAIT 10 SECONDS FOR NEW READ
+        time.sleep(10)
 
 except KeyboardInterrupt:
     print("interrupted")
