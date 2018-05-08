@@ -9,3 +9,4 @@ Instituttet vil se p ̊a mulighetene for  ̊a gjøre oppgraderinger inne p ̊a k
 
 
 ![IoTLAB](IoT-Lab-gruppe-A/Diverse/lab.jpg?raw=true "IoT Lab")
+
