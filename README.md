@@ -5,7 +5,7 @@ Her publiseres kode, konfigurasjoner o.l. relatert til Forstudie for Internet of
 
 
 ## Forstudie for Internet of Things
-Instituttet vil se p ̊a mulighetene for  ̊a gjøre oppgraderinger inne p ̊a kommunikasjonsteknologi laben. Hvordan kan IoT implementeres inn p ̊a eksisterende lab? Hvilke typer konsepter vil spesielt egne seg i undervisning, eksperimentering og forskningsøyemed? Hva slags utstyr og oppgraderinger m ̊a gjennomføres for at dette blir en interessant og spennende IoT lab. Det grunnleggende vil være IoT infrastrukturen og deretter kan andre tillegg komplimenteres. Vurderinger innen sikkerhet, personvern og funksjonalitet vil bli p ̊akrevd. Tekniske utprøvelser vil det ogs ̊a være behov for.
+Instituttet vil se på mulighetene for å gjøre oppgraderinger inne på kommunikasjonsteknologi laben. Hvordan kan IoT implementeres inn på eksisterende lab? Hvilke typer konsepter vil spesielt egne seg i undervisning, eksperimentering og forskningsøyemed? Hva slags utstyr og oppgraderinger må gjennomføres for at dette blir en interessant og spennende IoT lab. Det grunnleggende vil være IoT infrastrukturen og deretter kan andre tillegg komplimenteres. Vurderinger innen sikkerhet, personvern og funksjonalitet vil bli påakrevd. Tekniske utprøvelser vil det også være behov for.
 
 ## Opsett på LAB
 ![Alt text](Diverse/lab.jpg)
