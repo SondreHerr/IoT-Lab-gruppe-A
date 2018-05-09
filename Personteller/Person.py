@@ -39,10 +39,10 @@ class MyPerson:
         self.done = True
     def timedOut(self):
         return self.done
-    def going_UP(self,mid_start,mid_end):
+    def going_UP(self,middle_start,middle_end):
         if len(self.tracks) >= 2:
             if self.state == '0':
-                if self.tracks[-1][1] < mid_end and self.tracks[-2][1] >= mid_end: #cruzo la linea
+                if self.tracks[-1][1] < middle_end and self.tracks[-2][1] >= middle_end: 
                     state = '1'
                     self.dir = 'up'
                     return True
@@ -50,10 +50,10 @@ class MyPerson:
                 return False
         else:
             return False
-    def going_DOWN(self,mid_start,mid_end):
+    def going_DOWN(self,middle_start,middle_end):
         if len(self.tracks) >= 2:
             if self.state == '0':
-                if self.tracks[-1][1] > mid_start and self.tracks[-2][1] <= mid_start: #cruzo la linea
+                if self.tracks[-1][1] > middle_start and self.tracks[-2][1] <= middle_start: 
                     state = '1'
                     self.dir = 'down'
                     return True
