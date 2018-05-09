@@ -13,7 +13,7 @@ import paho.mqtt.client as mqtt
 client = mqtt.Client("python_pub")
 client.username_pw_set(username="pi", password="raspberry")
 
-client.connect("192.168.1.38", 1883)
+client.connect("192.168.1.26", 1883)
 client.loop_start()
  
 # konstrukter argument og parse argument
@@ -122,7 +122,6 @@ while True:
 							cnt_up += 1
 							total += 1
 							print("Person:",i.getId(),'Gikk inn ',time.strftime("%c"),' Total:', str(total))
-							#client.publish("personteller/antall", str(total))
 						elif i.going_DOWN(line_down,line_up) == True:
 							cnt_down += 1
 							if total >=1:
@@ -130,12 +129,11 @@ while True:
 							else:
 								total = 0
 							print("Person:",i.getId(),'Gikk ut ',time.strftime("%c"),' Total:', str(total))
-							#client.publish("personteller/antall", str(total))
 						break
 					if i.getState() == '1':
 						if i.getDir() == 'down' and i.getY() > down_limit:
 							i.setDone()
-						elif i.getDir() == 'up' and i.getY < up_limit:
+						elif i.getDir() == 'up' and i.getY() < up_limit:
 							i.setDone()
 					if i.timedOut():
 						index = persons.index(i)
@@ -174,7 +172,8 @@ while True:
 	cv2.putText(frame, str_total ,(10,140),font,0.5,(0,255,0),1,cv2.LINE_AA)
 
 	# Vis rammen
-	#cv2.imshow("Frame", frame)
+	cv2.imshow("Frame", frame)
+	cv2.imshow("fgmask", fgmask)
 
 	# Blir q presset vil løkken brytes
 	key = cv2.waitKey(1) & 0xFF
