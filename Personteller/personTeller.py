@@ -120,14 +120,19 @@ while True:
 						i.updateCoords(cx,cy)
 						if i.going_UP(line_down,line_up) == True:
 							cnt_up += 1
+							client.publish("personteller/antall",str(total))
 							total += 1
+							client.publish("personteller/antall",str(total))
 							print("Person:",i.getId(),'Gikk inn ',time.strftime("%c"),' Total:', str(total))
 						elif i.going_DOWN(line_down,line_up) == True:
 							cnt_down += 1
 							if total >=1:
+								client.publish("personteller/antall",str(total))
 								total -= 1
+								client.publish("personteller/antall",str(total))
 							else:
 								total = 0
+								client.publish("personteller/antall",str(total))
 							print("Person:",i.getId(),'Gikk ut ',time.strftime("%c"),' Total:', str(total))
 						break
 					if i.getState() == '1':
@@ -158,7 +163,7 @@ while True:
 	str_down = 'DOWN: '+ str(cnt_down)
 
 	str_total = 'TOT: '+ str(total)
-	client.publish("personteller/antall",str(total))
+	#client.publish("personteller/antall",str(total)) //kommentert bort pga dette skapte for mange sendinger av antall
 	#Tegne på skjerm
 	frame = cv2.polylines(frame,[pts_L1],False,line_down_color,thickness=2)
 	frame = cv2.polylines(frame,[pts_L2],False,line_up_color,thickness=2)
@@ -171,9 +176,9 @@ while True:
 	cv2.putText(frame, str_total ,(10,140),font,0.5,(255,255,255),2,cv2.LINE_AA)
 	cv2.putText(frame, str_total ,(10,140),font,0.5,(0,255,0),1,cv2.LINE_AA)
 
-	# Vis rammen
-	cv2.imshow("Frame", frame)
-	cv2.imshow("fgmask", fgmask)
+	# Vis rammen kommentert vekk når man kjører over ssh
+	#cv2.imshow("Frame", frame)
+	#cv2.imshow("fgmask", fgmask)
 
 	# Blir q presset vil løkken brytes
 	key = cv2.waitKey(1) & 0xFF
